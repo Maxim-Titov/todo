@@ -1,12 +1,50 @@
-# React + Vite
+# ToDo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ToDo App - це простий менеджер завдань, створений за допомогою ReactJS. Дозволяє додавати, редагувати, видаляти та позначати завдання як виконані.
 
-Currently, two official plugins are available:
+## Посилання
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Деплой:** [ToDo App](http://www.todos.great-site.net/)
+- **Репозиторій:** [GitHub](https://github.com/Maxim-Titov/todo)
 
-## Expanding the ESLint configuration
+## Функціонал
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Додавання нових завдань
+- Видалення завдань
+- Позначення завдань як виконаних
+- Збереження списку завдань
+
+## Технології
+
+- **ReactJS** - бібліотека для створення UI
+- **React Hooks** - використання стану та ефектів
+- **CSS** - стилізація компонентів
+
+## Встановлення та запуск
+
+Для запуску необхідно створити БД і відредагувати PHP код, щоб підключитись до БД. Також потрібно вписати правильні посилання в App.jsx, LoginForm.jsx і RegisterForm.jsx
+
+1. Клонуйте репозиторій:
+   ```bash
+   git clone https://github.com/Maxim-Titov/todo.git
+   ```
+2. Перейдіть у папку проекту:
+   ```bash
+   cd todo
+   ```
+3. Встановіть залежності:
+   ```bash
+   npm install
+   ```
+4. Запустіть локальний сервер:
+   ```bash
+   npm run dev
+   ```
+
+Додаток буде доступний за адресою `http://localhost:5173/`.
+
+## Автор
+
+- **Максим Титов**
+- [GitHub](https://github.com/Maxim-Titov)
+
