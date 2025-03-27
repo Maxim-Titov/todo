@@ -1,0 +1,21 @@
+@import '../global/mixins';
+@import '../global/variables';
+
+.menu {
+    nav {
+        ul {
+            @include li-reset;
+
+            display: flex;
+
+            li {
+                margin-right: $gutterM;
+                cursor: pointer;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+@import "../global/variables";
+
+.main-wrapper {
+    display: flex;
+
+    main {
+        flex: 1 1;
+        padding-top: 50px;
+
+        .container {
+            position: relative;
+        }
+    }
+
+    aside {
+        width: 25%;
+        border-left: 1px solid black;
+        padding: $gutter $gutter;
+    }
+}

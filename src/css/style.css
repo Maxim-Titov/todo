@@ -1,0 +1,488 @@
+@charset "UTF-8";
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+#wrapper.dark {
+  background-color: #3c3c3c;
+  color: #fff;
+}
+#wrapper.dark header,
+#wrapper.dark footer {
+  background-color: #2b2b2b;
+  border-color: #fff;
+}
+#wrapper.dark .main-wrapper input,
+#wrapper.dark .main-wrapper textarea,
+#wrapper.dark .main-wrapper select,
+#wrapper.dark .main-wrapper button {
+  border: 1px solid #fff;
+  background-color: #2b2b2b;
+  color: #fff;
+}
+#wrapper.dark .main-wrapper main .folder .options {
+  background-color: #3c3c3c;
+  color: #fff;
+  border-color: #fff;
+}
+#wrapper.dark .main-wrapper main .folder p {
+  color: #fff;
+}
+#wrapper.dark .main-wrapper main .folder:hover {
+  background-color: #2b2b2b;
+}
+#wrapper.dark .main-wrapper main .task {
+  border-color: #fff;
+}
+#wrapper.dark .main-wrapper main .task.checked {
+  opacity: 0.5;
+  background-color: #a2e4a2;
+  border-color: #95d695;
+  color: black;
+}
+#wrapper.dark .main-wrapper main .task.checked .task-header {
+  border-color: black;
+}
+#wrapper.dark .main-wrapper main .task .task-header {
+  border-color: #fff;
+}
+#wrapper.dark .main-wrapper main .user-profile .about-and-settings h2,
+#wrapper.dark .main-wrapper main .user-profile .about-and-settings .about {
+  border-color: #fff;
+}
+#wrapper.dark .main-wrapper aside {
+  border-color: #fff;
+}
+#wrapper.dark .main-wrapper aside .add-folder-form,
+#wrapper.dark .main-wrapper aside .add-task-form {
+  border-color: #fff;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-wrapper {
+  flex: 1 1 auto;
+}
+
+.container {
+  width: 1220px;
+  margin: 0 auto;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+@media (max-width: 1220px) {
+  .container {
+    width: 100%;
+  }
+}
+header {
+  border-bottom: 1px solid black;
+}
+header .container {
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .container .site-branding {
+  display: flex;
+  align-items: center;
+}
+header .container .site-branding img {
+  width: 100px;
+}
+header .container .site-branding h1 {
+  font-size: 50px;
+}
+header .container .user {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+header .container .user img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.menu nav ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.menu nav ul li {
+  list-style: none;
+}
+.menu nav ul li {
+  margin-right: 20px;
+  cursor: pointer;
+}
+.menu nav ul li:last-child {
+  margin-right: 0;
+}
+
+.main-wrapper {
+  display: flex;
+}
+.main-wrapper main {
+  flex: 1 1;
+  padding-top: 50px;
+}
+.main-wrapper main .container {
+  position: relative;
+}
+.main-wrapper aside {
+  width: 25%;
+  border-left: 1px solid black;
+  padding: 30px 30px;
+}
+
+.user-profile .user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.user-profile .user img {
+  width: 100px;
+  border-radius: 50%;
+}
+.user-profile .about-and-settings {
+  display: flex;
+  justify-content: center;
+}
+.user-profile .about-and-settings h2 {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid black;
+}
+.user-profile .about-and-settings .about {
+  border-right: 1px solid black;
+  width: 100%;
+}
+.user-profile .about-and-settings .about .content {
+  padding: 20px;
+}
+.user-profile .about-and-settings .about .content p {
+  margin-bottom: 10px;
+}
+.user-profile .about-and-settings .about .content p:last-child {
+  margin-bottom: 0;
+}
+.user-profile .about-and-settings .settings {
+  width: 100%;
+}
+.user-profile .about-and-settings .settings .content {
+  padding: 0 20px;
+}
+.user-profile .about-and-settings .settings .content .theme-btn {
+  display: flex;
+  align-items: center;
+}
+.user-profile .about-and-settings .settings .content .theme-btn img {
+  width: 75px;
+  cursor: pointer;
+}
+.user-profile .about-and-settings .settings .content .logout-btn {
+  display: flex;
+  align-items: center;
+}
+.user-profile .about-and-settings .settings .content .logout-btn p {
+  margin-right: 15px;
+}
+.user-profile .about-and-settings .settings .content .logout-btn .logout-button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.folders {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.folders .folder {
+  width: 150px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  margin: 0 auto;
+  position: relative;
+}
+.folders .folder .options {
+  border: 1px solid black;
+  border-radius: 8px;
+  text-align: center;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white;
+  padding: 5px 10px;
+  transition: opacity 0.3s;
+}
+.folders .folder .options form {
+  margin-top: 10px;
+}
+.folders .folder .options form button {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.folders .folder .options form button:last-child {
+  margin-bottom: 0;
+}
+.folders .folder div {
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+.folders .folder div img {
+  width: 150px;
+}
+.folders .folder div p {
+  font-size: 16px;
+  text-align: center;
+}
+.folders .folder:hover {
+  background-color: #f0f0f0;
+}
+.folders .folder:hover .options {
+  opacity: 1;
+}
+
+.in-folder-tasks {
+  position: relative;
+}
+.in-folder-tasks .back-btn {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  transform: scale(2);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.in-folder-tasks .back-btn:hover {
+  transform: scale(2.5);
+}
+.in-folder-tasks .folder-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.task.checked {
+  opacity: 0.5;
+  background-color: #e0ffe0;
+  border-color: #00cc00;
+}
+.task .content {
+  flex: 1 1;
+}
+.task .content .task-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.task .content .task-header .task-title {
+  display: flex;
+}
+.task .content .task-header .task-title h2 {
+  margin-right: 10px;
+}
+.task .content .task-header .task-title .priority {
+  width: auto;
+  height: 1.5lh;
+}
+.task input[type=checkbox] {
+  appearance: none;
+  margin-right: 20px;
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+.task input[type=checkbox]:checked::after {
+  content: "✔";
+  font-size: 18px;
+  color: green;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+form * {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+.add-folder-form,
+.add-task-form {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+}
+.add-folder-form form,
+.add-task-form form {
+  text-align: center;
+}
+
+.add-folder-form {
+  margin-bottom: 30px;
+}
+.add-folder-form form input,
+.add-folder-form form button {
+  padding: 10px;
+}
+.add-folder-form form input {
+  width: 95%;
+  margin-bottom: 20px;
+}
+.add-folder-form form button {
+  width: 250px;
+  cursor: pointer;
+}
+
+.add-task-form {
+  margin-bottom: 30px;
+}
+.add-task-form form input,
+.add-task-form form textarea,
+.add-task-form form button {
+  padding: 10px;
+}
+.add-task-form form input,
+.add-task-form form textarea {
+  width: 95%;
+  margin-bottom: 10px;
+}
+.add-task-form form select {
+  margin-bottom: 20px;
+}
+.add-task-form form button {
+  width: 250px;
+  cursor: pointer;
+}
+
+.delete-tasks-form button {
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+}
+
+.login-form,
+.register-form {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.login-form .form-content,
+.register-form .form-content {
+  width: 100%;
+  text-align: center;
+}
+.login-form .form-content h2,
+.register-form .form-content h2 {
+  font-size: 50px;
+}
+.login-form .form-content form,
+.register-form .form-content form {
+  margin: 30px 0;
+}
+.login-form .form-content form input,
+.register-form .form-content form input {
+  margin-bottom: 10px;
+  width: 275px;
+  height: 25px;
+  padding-left: 10px;
+}
+.login-form .form-content form button,
+.register-form .form-content form button {
+  margin-top: 10px;
+  width: 290px;
+  height: 30px;
+}
+
+.message-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.message-background .message-box {
+  border: 1px solid black;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 200px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.message-background .message-box p {
+  flex: 1 1;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+.message-background .message-box form {
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+.message-background .message-box form button {
+  width: 75px;
+  height: 40px;
+}
+
+footer {
+  border-top: 1px solid black;
+}
+footer .container {
+  padding: 50px 0;
+  text-align: center;
+}

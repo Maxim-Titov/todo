@@ -1,0 +1,76 @@
+@import "../global/variables";
+
+.user-profile {
+    .user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 50px;
+
+        img {
+            width: 100px;
+            border-radius: 50%;
+        }
+    }
+
+    .about-and-settings {
+        display: flex;
+        justify-content: center;
+
+        h2 {
+            text-align: center;
+            padding: $gutterM 0;
+            border-bottom: 1px solid black;
+        }
+
+        .about {
+            border-right: 1px solid black;
+            width: 100%;
+
+            .content {
+                padding: $gutterM;
+
+                p {
+                    margin-bottom: $gutterS;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .settings {
+            width: 100%;
+
+            .content {
+                padding: 0 $gutterM;
+
+                .theme-btn {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 75px;
+                        cursor: pointer;
+                    }
+                }
+
+                .logout-btn {
+                    display: flex;
+                    align-items: center;
+
+                    p {
+                        margin-right: 15px;
+                    }
+
+                    .logout-button {
+                        width: 40px;
+                        height: 40px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

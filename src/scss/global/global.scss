@@ -1,0 +1,89 @@
+@import 'variables';
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+#wrapper {
+    &.dark {
+        background-color: $theme-dark;
+        color: $white;
+
+        header,
+        footer {
+            background-color: $theme-dark-black;
+            border-color: $white;
+        }
+
+        .main-wrapper {
+
+            input,
+            textarea,
+            select,
+            button {
+                border: 1px solid $white;
+                background-color: $theme-dark-black;
+                color: $white;
+            }
+
+            main {
+                .folder {
+                    .options {
+                        background-color: $theme-dark;
+                        color: $white;
+                        border-color: $white;
+                    }
+
+                    p {
+                        color: $white;
+                    }
+
+                    &:hover {
+                        background-color: $theme-dark-black;
+                    }
+                }
+
+                .task {
+                    border-color: $white;
+
+                    &.checked {
+                        opacity: 0.5;
+                        background-color: #a2e4a2;
+                        border-color: #95d695;
+                        color: black;
+
+                        .task-header {
+                            border-color: black;
+                        }
+                    }
+
+                    .task-header {
+                        border-color: $white;
+                    }
+                }
+
+                .user-profile {
+                    .about-and-settings {
+
+                        h2,
+                        .about {
+                            border-color: $white;
+                        }
+                    }
+                }
+            }
+
+            aside {
+                border-color: $white;
+
+                .add-folder-form,
+                .add-task-form {
+                    border-color: $white;
+                }
+            }
+        }
+    }
+}
