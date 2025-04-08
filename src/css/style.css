@@ -409,40 +409,96 @@ form * {
   cursor: pointer;
 }
 
-.login-form,
-.register-form {
+.login-and-register {
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
 }
-.login-form .form-content,
-.register-form .form-content {
-  width: 100%;
+.login-and-register .shape {
   text-align: center;
+  width: 300px;
+  height: 300px;
+  padding: 150px;
+  margin: 0 auto;
+  background: linear-gradient(45deg, #88D5BF 0%, #5D6BF8 100%);
+  border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  z-index: 5;
+  transition: all 1s ease-in-out;
+  animation: morph 8s ease-in-out infinite;
 }
-.login-form .form-content h2,
-.register-form .form-content h2 {
+.login-and-register .shape .login-form .form-content h2,
+.login-and-register .shape .register-form .form-content h2 {
   font-size: 50px;
+  color: #fff;
 }
-.login-form .form-content form,
-.register-form .form-content form {
+.login-and-register .shape .login-form .form-content form,
+.login-and-register .shape .register-form .form-content form {
   margin: 30px 0;
 }
-.login-form .form-content form input,
-.register-form .form-content form input {
+.login-and-register .shape .login-form .form-content form input,
+.login-and-register .shape .register-form .form-content form input {
   margin-bottom: 10px;
   width: 275px;
-  height: 25px;
+  height: 30px;
   padding-left: 10px;
+  outline: none;
 }
-.login-form .form-content form button,
-.register-form .form-content form button {
+.login-and-register .shape .login-form .form-content form button,
+.login-and-register .shape .register-form .form-content form button {
   margin-top: 10px;
   width: 290px;
   height: 30px;
+  cursor: pointer;
+}
+.login-and-register .shape .login-form .form-content form input,
+.login-and-register .shape .login-form .form-content form button,
+.login-and-register .shape .register-form .form-content form input,
+.login-and-register .shape .register-form .form-content form button {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+}
+.login-and-register .shape .login-form .form-content form input:hover,
+.login-and-register .shape .login-form .form-content form button:hover,
+.login-and-register .shape .register-form .form-content form input:hover,
+.login-and-register .shape .register-form .form-content form button:hover {
+  background-color: #fff;
+}
+.login-and-register .shape .login-form .form-content p,
+.login-and-register .shape .register-form .form-content p {
+  color: #fff;
+}
+.login-and-register .shape .login-form .form-content p button,
+.login-and-register .shape .register-form .form-content p button {
+  cursor: pointer;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+.login-and-register .shape .login-form .form-content p button:hover,
+.login-and-register .shape .register-form .form-content p button:hover {
+  background-color: #fff;
 }
 
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    background: linear-gradient(45deg, #88D5BF 0%, #5D6BF8 100%);
+  }
+  50% {
+    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+    background: linear-gradient(45deg, #88D5BF 0%, #5D6BF8 100%);
+  }
+  100% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    background: linear-gradient(45deg, #88D5BF 0%, #5D6BF8 100%);
+  }
+}
 .message-background {
   position: absolute;
   top: 0;

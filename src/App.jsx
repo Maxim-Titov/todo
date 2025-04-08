@@ -12,7 +12,6 @@ import Footer from "./components/Footer"
 import UserProfile from "./components/UserProfile"
 import InFolderTasks from "./components/InFolderTasks"
 import DeleteTaskForm from "./components/DeleteTaskForm"
-import Message from "./components/Message"
 
 const addFolderUrl = `http://localhost/todo-backend/add_folder.php`
 const renameFolderUrl = `http://localhost/todo-backend/rename_folder.php`
@@ -62,6 +61,40 @@ class App extends React.Component {
         this.addTask = this.addTask.bind(this)
         this.toggleTaskSelection = this.toggleTaskSelection.bind(this)
         this.deleteTasks = this.deleteTasks.bind(this)
+    }
+
+    componentDidMount() {
+        // Перевіряємо, чи є збережена тема в localStorage
+        const savedTheme = localStorage.getItem('theme')
+        if (savedTheme) {
+            // Якщо тема збережена, оновлюємо стан
+            this.setState({ theme: savedTheme }, this.applyTheme)
+        } else {
+            // Якщо немає збереженої теми, можна встановити тему за замовчуванням
+            this.setState({ theme: "dark" }, this.applyTheme)
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        // Застосовуємо тему після зміни стану
+        if (prevState.theme !== this.state.theme) {
+            this.applyTheme()
+            localStorage.setItem('theme', this.state.theme)
+        }
+    }
+
+    applyTheme() {
+        const wrapper = document.getElementById("wrapper")
+
+        // Якщо тема світла, додаємо клас 'light' і прибираємо 'dark'
+        if (this.state.theme === "light") {
+            wrapper.classList.add("light")
+            wrapper.classList.remove("dark")
+        } else {
+            // Якщо тема темна, додаємо клас 'dark' і прибираємо 'light'
+            wrapper.classList.add("dark")
+            wrapper.classList.remove("light")
+        }
     }
 
     handleLogin(user) {
@@ -274,7 +307,6 @@ class App extends React.Component {
             return
         }
 
-        // 
         axios.post('http://localhost/todo-backend/delete_tasks.php', {
             task_ids: selectedTasks
         }).then(res => {
@@ -294,24 +326,28 @@ class App extends React.Component {
         })
     }
 
+    // changeTheme(theme) {
+    //     this.setState({
+    //         theme: theme
+    //     })
+
+    //     localStorage.setItem('theme', theme)
+
+    //     const wrapper = document.getElementById("wrapper")
+
+    //     if (theme === "light") {
+    //         wrapper.classList.add("light")
+    //         wrapper.classList.remove("dark")
+    //     } else {
+    //         wrapper.classList.add("dark")
+    //         wrapper.classList.remove("light")
+    //     }
+    // }
+
     changeTheme(theme) {
         this.setState({
             theme: theme
         })
-
-        const wrapper = document.getElementById("wrapper")
-
-        if (this.state.theme === "light") {
-            wrapper.classList.add("light")
-        } else {
-            wrapper.classList.remove("light")
-        }
-
-        if (this.state.theme === "dark") {
-            wrapper.classList.add("dark")
-        } else {
-            wrapper.classList.remove("dark")
-        }
     }
 
     changePage(page) {
@@ -376,13 +412,15 @@ class App extends React.Component {
 
         if (!loggedInUser) {
             return (
-                <>
-                    {authPage === "login" ? (
-                        <Login isMessage={this.state.message} showMessage={this.showMessage} onLogin={this.handleLogin} onChangePage={this.toggleAuthPage} />
-                    ) : (
-                        <Register onLogin={this.handleLogin} onChangePage={this.toggleAuthPage} />
-                    )}
-                </>
+                <div className="login-and-register">
+                    <div className="shape">
+                        {authPage === "login" ? (
+                            <Login isMessage={this.state.message} showMessage={this.showMessage} onLogin={this.handleLogin} onChangePage={this.toggleAuthPage} />
+                        ) : (
+                            <Register onLogin={this.handleLogin} onChangePage={this.toggleAuthPage} />
+                        )}
+                    </div>
+                </div>
             )
         }
 
