@@ -9,6 +9,10 @@ body {
 
 body {}
 
+* {
+    // border: 1px solid greenyellow;
+}
+
 #wrapper {
     min-height: 100%;
     display: flex;
@@ -20,7 +24,7 @@ body {}
 }
 
 .container {
-    width: $desktopL;
+    max-width: $desktopL;
     margin: 0 auto;
 }
 

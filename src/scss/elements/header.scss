@@ -1,3 +1,5 @@
+@import "../global/variables";
+
 header {
     border-bottom: 1px solid black;
 
@@ -28,6 +30,43 @@ header {
             img {
                 width: 100px;
                 border-radius: 50%;
+            }
+        }
+
+        div:last-child {
+            display: none;
+        }
+
+        // .bm-burger-button {
+        //     display: none;
+        // }
+    }
+}
+
+/*------------------------------------------------------------------*/
+
+@media(max-width: $mobile) {
+    header {
+        .container {
+            .site-branding {
+                padding-left: $gutter;
+
+                img {
+                    width: 50px;
+                }
+
+                h1 {
+                    font-size: 30px;
+                }
+            }
+
+            &>.user,
+            &>.menu {
+                display: none;
+            }
+
+            div:last-child {
+                display: block;
             }
         }
     }

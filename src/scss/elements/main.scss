@@ -18,3 +18,22 @@
         padding: $gutter $gutter;
     }
 }
+
+/*------------------------------------------------------------------*/
+
+@media(max-width: $mobile) {
+    .main-wrapper {
+        flex-direction: column;
+
+        main {
+            padding: 50px $gutterS 0 $gutterS;
+        }
+
+        aside {
+            width: 95%;
+            border-left: none;
+            border-top: 1px solid black;
+            padding: $gutterM $gutterS;
+        }
+    }
+}

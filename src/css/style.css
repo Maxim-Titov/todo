@@ -79,7 +79,7 @@ body {
 }
 
 .container {
-  width: 1220px;
+  max-width: 1220px;
   margin: 0 auto;
 }
 
@@ -128,7 +128,28 @@ header .container .user img {
   width: 100px;
   border-radius: 50%;
 }
+header .container div:last-child {
+  display: none;
+}
 
+/*------------------------------------------------------------------*/
+@media (max-width: 425px) {
+  header .container .site-branding {
+    padding-left: 30px;
+  }
+  header .container .site-branding img {
+    width: 50px;
+  }
+  header .container .site-branding h1 {
+    font-size: 30px;
+  }
+  header .container > .user, header .container > .menu {
+    display: none;
+  }
+  header .container div:last-child {
+    display: block;
+  }
+}
 .menu nav ul {
   padding: 0;
   margin: 0;
@@ -143,6 +164,98 @@ header .container .user img {
 }
 .menu nav ul li:last-child {
   margin-right: 0;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 30px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #fff;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+.bm-item-list:first-child {
+  margin-top: 30px;
+}
+.bm-item-list .menu {
+  border-bottom: 1px solid darkgray;
+  margin-bottom: 20px;
+}
+.bm-item-list .menu nav ul {
+  flex-direction: column;
+}
+.bm-item-list .menu nav ul li {
+  text-align: center;
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+.bm-item-list .user {
+  display: flex !important;
+  flex-direction: column;
+}
+.bm-item-list .user-name {
+  order: 2;
+}
+.bm-item-list .user img {
+  order: 1;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .main-wrapper {
@@ -161,6 +274,21 @@ header .container .user img {
   padding: 30px 30px;
 }
 
+/*------------------------------------------------------------------*/
+@media (max-width: 425px) {
+  .main-wrapper {
+    flex-direction: column;
+  }
+  .main-wrapper main {
+    padding: 50px 10px 0 10px;
+  }
+  .main-wrapper aside {
+    width: 95%;
+    border-left: none;
+    border-top: 1px solid black;
+    padding: 20px 10px;
+  }
+}
 .user-profile .user {
   display: flex;
   flex-direction: column;
@@ -275,6 +403,33 @@ header .container .user img {
   opacity: 1;
 }
 
+/*------------------------------------------------------------------*/
+@media (max-width: 425px) {
+  .folders {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .folders .folder {
+    width: 100px;
+  }
+  .folders .folder .options {
+    opacity: 100;
+  }
+  .folders .folder div {
+    align-items: center;
+    text-decoration: none;
+    color: black;
+  }
+  .folders .folder div img {
+    width: 100px;
+  }
+  .folders .folder div p {
+    font-size: 16px;
+    text-align: center;
+  }
+  .folders .folder:hover {
+    background-color: #f0f0f0;
+  }
+}
 .in-folder-tasks {
   position: relative;
 }
@@ -414,6 +569,8 @@ form * {
   width: 100%;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  justify-content: center;
 }
 .login-and-register .shape {
   text-align: center;
@@ -497,6 +654,13 @@ form * {
   100% {
     border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
     background: linear-gradient(45deg, #88D5BF 0%, #5D6BF8 100%);
+  }
+}
+/*------------------------------------------------------------------*/
+@media (max-width: 768px) {
+  .login-and-register .shape .login-form .form-content h2,
+  .login-and-register .shape .register-form .form-content h2 {
+    font-size: 30px;
   }
 }
 .message-background {

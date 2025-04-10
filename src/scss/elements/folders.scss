@@ -64,3 +64,38 @@
         }
     }
 }
+
+/*------------------------------------------------------------------*/
+
+@media(max-width: $mobile) {
+    .folders {
+        grid-template-columns: repeat(3, 1fr);
+
+        .folder {
+            width: 100px;
+
+            .options {
+                opacity: 100;
+            }
+
+            div {
+                align-items: center;
+                text-decoration: none;
+                color: black;
+
+                img {
+                    width: 100px;
+                }
+
+                p {
+                    font-size: 16px;
+                    text-align: center;
+                }
+            }
+
+            &:hover {
+                background-color: $theme-light-hover;
+            }
+        }
+    }
+}
