@@ -2,10 +2,20 @@
 
 footer {
     border-top: 1px solid black;
-    z-index: 1;
 
     .container {
         padding: 40px 0;
         text-align: center;
+    }
+}
+
+/*------------------------------------------------------------------*/
+
+@media(max-width: $mobile) {
+    footer {
+        z-index: 1;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
     }
 }

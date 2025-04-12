@@ -1,9 +1,6 @@
 @import "../global/variables";
 
 .main-wrapper {
-    display: flex;
-    overflow: hidden;
-
     main {
         flex: 1 1;
         padding-top: 50px;
@@ -14,6 +11,7 @@
     }
 
     aside {
+        background-color: $theme-dark;
         position: relative;
         width: 25%;
         border-left: 1px solid black;
@@ -34,9 +32,12 @@
 
         main {
             padding: 50px $gutterS 0 $gutterS;
+            flex: 1 1 auto;
         }
 
         aside {
+            position: fixed;
+
             width: 95%;
             border-left: none;
             border-top: 1px solid black;
@@ -49,17 +50,23 @@
                 left: 50px;
                 scale: 2;
                 cursor: pointer;
-                transition: transform 0.3s;
+                transition: bottom 0.3s;
             }
 
-            &.folders-sidebar,
-            &.in-folder-sidebar,
+            &.folders-sidebar {
+                bottom: -70px;
+            }
+
+            &.in-folder-sidebar {
+                bottom: -247px;
+            }
+
             &.tasks-sidebar {
-                transform: translateY(calc(100% - 50px));
+                bottom: 16px;
             }
 
             &.open {
-                transform: translateY(0);
+                bottom: 100px;
 
                 .open-btn {
                     transform: rotate(180deg);

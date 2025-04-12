@@ -90,7 +90,10 @@ body {
 }
 
 .main-wrapper {
+  display: flex;
   flex: 1 1 auto;
+  overflow: hidden;
+  min-height: 100%;
 }
 
 .container {
@@ -178,7 +181,7 @@ header .container div:last-child {
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+  position: absolute;
   width: 36px;
   height: 30px;
   right: 30px;
@@ -275,10 +278,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: rgba(0, 0, 0, 0.3);
 }
 
-.main-wrapper {
-  display: flex;
-  overflow: hidden;
-}
 .main-wrapper main {
   flex: 1 1;
   padding-top: 50px;
@@ -287,6 +286,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   position: relative;
 }
 .main-wrapper aside {
+  background-color: #3c3c3c;
   position: relative;
   width: 25%;
   border-left: 1px solid black;
@@ -304,8 +304,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
   .main-wrapper main {
     padding: 50px 10px 0 10px;
+    flex: 1 1 auto;
   }
   .main-wrapper aside {
+    position: fixed;
     width: 95%;
     border-left: none;
     border-top: 1px solid black;
@@ -318,13 +320,19 @@ Note: Beware of modifying this element as it can break the animations - you shou
     left: 50px;
     scale: 2;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: bottom 0.3s;
   }
-  .main-wrapper aside.folders-sidebar, .main-wrapper aside.in-folder-sidebar, .main-wrapper aside.tasks-sidebar {
-    transform: translateY(calc(100% - 50px));
+  .main-wrapper aside.folders-sidebar {
+    bottom: -70px;
+  }
+  .main-wrapper aside.in-folder-sidebar {
+    bottom: -247px;
+  }
+  .main-wrapper aside.tasks-sidebar {
+    bottom: 16px;
   }
   .main-wrapper aside.open {
-    transform: translateY(0);
+    bottom: 100px;
   }
   .main-wrapper aside.open .open-btn {
     transform: rotate(180deg);
@@ -803,9 +811,18 @@ form * {
 
 footer {
   border-top: 1px solid black;
-  z-index: 1;
 }
 footer .container {
   padding: 40px 0;
   text-align: center;
+}
+
+/*------------------------------------------------------------------*/
+@media (max-width: 425px) {
+  footer {
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
 }

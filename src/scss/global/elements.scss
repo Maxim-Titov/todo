@@ -20,7 +20,10 @@ body {}
 }
 
 .main-wrapper {
+    display: flex;
     flex: 1 1 auto;
+    overflow: hidden;
+    min-height: 100%;
 }
 
 .container {
