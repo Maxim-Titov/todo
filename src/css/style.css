@@ -16,6 +16,9 @@ body {
 #wrapper.dark .bm-menu {
   background-color: #2b2b2b;
 }
+#wrapper.dark .bm-cross {
+  background-color: #bdc3c7;
+}
 #wrapper.dark .bm-item-list {
   color: #b8b7ad;
 }
@@ -179,7 +182,7 @@ header .container div:last-child {
   width: 36px;
   height: 30px;
   right: 30px;
-  top: 36px;
+  top: 30px;
 }
 
 /* Color/shape of burger icon bars */
@@ -196,11 +199,17 @@ header .container div:last-child {
 .bm-cross-button {
   height: 24px;
   width: 24px;
+  top: 30px !important;
+  right: 30px !important;
+}
+.bm-cross-button span {
+  top: 0 !important;
 }
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #bdc3c7;
+  background: black;
+  height: 24px !important;
 }
 
 /*
@@ -208,6 +217,7 @@ Sidebar wrapper styles
 Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
 */
 .bm-menu-wrap {
+  top: 0;
   position: fixed;
   height: 100%;
 }
@@ -267,6 +277,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 .main-wrapper {
   display: flex;
+  overflow: hidden;
 }
 .main-wrapper main {
   flex: 1 1;
@@ -283,27 +294,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   transition: transform 0.3s;
 }
 .main-wrapper aside .open-btn {
-  position: absolute;
-  top: 15px;
-  left: 50px;
-  scale: 2;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-.main-wrapper aside.folders-sidebar {
-  transform: translateY(calc(100% - 50px));
-}
-.main-wrapper aside.in-folder-sidebar {
-  transform: translateY(calc(100% - 50px));
-}
-.main-wrapper aside.tasks-sidebar {
-  transform: translateY(calc(100% - 50px));
-}
-.main-wrapper aside.open {
-  transform: translateY(0);
-}
-.main-wrapper aside.open .open-btn {
-  transform: rotate(180deg);
+  display: none;
 }
 
 /*------------------------------------------------------------------*/
@@ -319,6 +310,24 @@ Note: Beware of modifying this element as it can break the animations - you shou
     border-left: none;
     border-top: 1px solid black;
     padding: 50px 10px 0 10px;
+  }
+  .main-wrapper aside .open-btn {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 50px;
+    scale: 2;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .main-wrapper aside.folders-sidebar, .main-wrapper aside.in-folder-sidebar, .main-wrapper aside.tasks-sidebar {
+    transform: translateY(calc(100% - 50px));
+  }
+  .main-wrapper aside.open {
+    transform: translateY(0);
+  }
+  .main-wrapper aside.open .open-btn {
+    transform: rotate(180deg);
   }
 }
 .user-profile .user {
@@ -383,6 +392,35 @@ Note: Beware of modifying this element as it can break the animations - you shou
   cursor: pointer;
 }
 
+/*------------------------------------------------------------------*/
+@media (max-width: 425px) {
+  .user-profile .user {
+    margin-bottom: 30px;
+  }
+  .user-profile .user img {
+    width: 60px;
+  }
+  .user-profile .user .user-name {
+    font-size: 20px;
+  }
+  .user-profile .about-and-settings {
+    flex-direction: column;
+  }
+  .user-profile .about-and-settings h2 {
+    font-size: 20px;
+    border: none;
+  }
+  .user-profile .about-and-settings .about,
+  .user-profile .about-and-settings .settings {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid black;
+  }
+  .user-profile .about-and-settings .about:last-child,
+  .user-profile .about-and-settings .settings:last-child {
+    border-bottom: none;
+  }
+}
 .folders {
   display: grid;
   grid-gap: 30px;

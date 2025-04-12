@@ -78,3 +78,41 @@
         }
     }
 }
+
+/*------------------------------------------------------------------*/
+
+@media(max-width: $mobile) {
+    .user-profile {
+        .user {
+            margin-bottom: 30px;
+
+            img {
+                width: 60px;
+            }
+
+            .user-name {
+                font-size: 20px;
+            }
+        }
+
+        .about-and-settings {
+            flex-direction: column;
+
+            h2 {
+                font-size: 20px;
+                border: none;
+            }
+
+            .about,
+            .settings {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid black;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}

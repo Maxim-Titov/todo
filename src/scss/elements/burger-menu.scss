@@ -6,7 +6,7 @@
     width: 36px;
     height: 30px;
     right: 30px;
-    top: 36px;
+    top: 30px;
 }
 
 /* Color/shape of burger icon bars */
@@ -23,11 +23,18 @@
 .bm-cross-button {
     height: 24px;
     width: 24px;
+    top: 30px !important;
+    right: 30px !important;
+
+    span {
+        top: 0 !important;
+    }
 }
 
 /* Color/shape of close button cross */
 .bm-cross {
-    background: #bdc3c7;
+    background: black;
+    height: 24px !important;
 }
 
 /*
@@ -35,6 +42,7 @@ Sidebar wrapper styles
 Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
 */
 .bm-menu-wrap {
+    top: 0;
     position: fixed;
     height: 100%;
 }

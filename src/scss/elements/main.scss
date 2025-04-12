@@ -2,6 +2,7 @@
 
 .main-wrapper {
     display: flex;
+    overflow: hidden;
 
     main {
         flex: 1 1;
@@ -20,32 +21,7 @@
         transition: transform 0.3s;
 
         .open-btn {
-            position: absolute;
-            top: 15px;
-            left: 50px;
-            scale: 2;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        &.folders-sidebar {
-            transform: translateY(calc(100% - 50px));
-        }
-
-        &.in-folder-sidebar {
-            transform: translateY(calc(100% - 50px));
-        }
-
-        &.tasks-sidebar {
-            transform: translateY(calc(100% - 50px));
-        }
-
-        &.open {
-            transform: translateY(0);
-
-            .open-btn {
-                transform: rotate(180deg);
-            }
+            display: none;
         }
     }
 }
@@ -65,6 +41,30 @@
             border-left: none;
             border-top: 1px solid black;
             padding: 50px $gutterS 0 $gutterS;
+
+            .open-btn {
+                display: block;
+                position: absolute;
+                top: 15px;
+                left: 50px;
+                scale: 2;
+                cursor: pointer;
+                transition: transform 0.3s;
+            }
+
+            &.folders-sidebar,
+            &.in-folder-sidebar,
+            &.tasks-sidebar {
+                transform: translateY(calc(100% - 50px));
+            }
+
+            &.open {
+                transform: translateY(0);
+
+                .open-btn {
+                    transform: rotate(180deg);
+                }
+            }
         }
     }
 }

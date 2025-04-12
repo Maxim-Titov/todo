@@ -13,6 +13,10 @@ class Header extends React.Component {
         this.state = {
             menuOpen: false
         }
+
+        this.handleStateChange = this.handleStateChange.bind(this)
+        this.closeMenu = this.closeMenu.bind(this)
+        this.toggleMenu = this.toggleMenu.bind(this)
     }
 
     handleStateChange(state) {
@@ -44,9 +48,9 @@ class Header extends React.Component {
                         isOpen={this.state.menuOpen}
                         onStateChange={(state) => this.handleStateChange(state)}
                     >
-                        <MainMenu loadTasks={this.props.loadTasks} userId={this.props.userId} onPageChange={this.props.onPageChange} />
+                        <MainMenu onCloseMenu={this.closeMenu} loadTasks={this.props.loadTasks} userId={this.props.userId} onPageChange={this.props.onPageChange} />
 
-                        <User page={this.props.page} onPageChange={this.props.onPageChange} user={this.props.user} />
+                        <User onCloseMenu={this.closeMenu} page={this.props.page} onPageChange={this.props.onPageChange} user={this.props.user} />
                     </Menu>
 
                 </div>

@@ -19,7 +19,10 @@ class User extends React.Component {
         }
 
         return (
-            <div style={{ visibility: this.props.page === "profile" ? "hidden" : "visible" }} className="user" onClick={() => this.props.onPageChange("profile")}>
+            <div style={{ visibility: this.props.page === "profile" ? "hidden" : "visible" }} className="user" onClick={() => {
+                this.props.onPageChange("profile")
+                this.props.onCloseMenu()
+            }}>
                 <p className="user-name">{this.props.user.username}</p>
                 <img src={this.state.userImg} alt="user logo" />
             </div>
