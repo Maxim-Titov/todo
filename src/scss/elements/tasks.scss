@@ -2,6 +2,7 @@
 
 .in-folder-tasks {
     position: relative;
+    padding: 0 $gutterS;
 
     .back-btn {
         position: absolute;
@@ -20,6 +21,10 @@
         text-align: center;
         margin-bottom: 50px;
     }
+}
+
+.tasks {
+    padding: 0 $gutterS;
 }
 
 .task {
@@ -84,4 +89,8 @@
         left: 50%;
         transform: translateX(-50%);
     }
+}
+
+.no-tasks-label {
+    text-align: center;
 }

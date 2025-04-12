@@ -50,7 +50,7 @@ class InFolderTasks extends React.Component {
                     <FcPrevious className="back-btn" onClick={() => this.props.onPageChange("folders")} />
 
                     <h2 className="folder-title">- {this.state.folder.folder_title} -</h2>
-                    <p>No tasks found</p>
+                    <p className="no-tasks-label">No tasks found</p>
                 </div>
             )
         }

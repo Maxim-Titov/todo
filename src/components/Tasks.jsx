@@ -16,7 +16,9 @@ class Tasks extends React.Component {
             )
         } else {
             return (
-                <p>No tasks found</p>
+                <div className="tasks">
+                    <p className="no-tasks-label">No tasks found</p>
+                </div>
             )
         }
     }

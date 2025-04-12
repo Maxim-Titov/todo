@@ -12,6 +12,22 @@ body {
         background-color: $theme-dark;
         color: $white;
 
+        .bm-burger-bars {
+            background: $white;
+        }
+
+        .bm-menu {
+            background-color: $theme-dark-black;
+        }
+
+        .bm-item-list {
+            color: #b8b7ad;
+
+            .menu {
+                border-bottom: 1px solid darkgray;
+            }
+        }
+
         header,
         footer {
             background-color: $theme-dark-black;

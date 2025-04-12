@@ -13,9 +13,40 @@
     }
 
     aside {
+        position: relative;
         width: 25%;
         border-left: 1px solid black;
         padding: $gutter $gutter;
+        transition: transform 0.3s;
+
+        .open-btn {
+            position: absolute;
+            top: 15px;
+            left: 50px;
+            scale: 2;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        &.folders-sidebar {
+            transform: translateY(calc(100% - 50px));
+        }
+
+        &.in-folder-sidebar {
+            transform: translateY(calc(100% - 50px));
+        }
+
+        &.tasks-sidebar {
+            transform: translateY(calc(100% - 50px));
+        }
+
+        &.open {
+            transform: translateY(0);
+
+            .open-btn {
+                transform: rotate(180deg);
+            }
+        }
     }
 }
 
@@ -33,7 +64,7 @@
             width: 95%;
             border-left: none;
             border-top: 1px solid black;
-            padding: $gutterM $gutterS;
+            padding: 50px $gutterS 0 $gutterS;
         }
     }
 }

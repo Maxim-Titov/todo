@@ -8,6 +8,7 @@ import Folders from "./components/Folders"
 import Tasks from "./components/Tasks"
 import AddFolderForm from "./components/AddFolderForm"
 import AddTaskForm from "./components/AddTaskForm"
+import OpenButton from "./components/OpenButton"
 import Footer from "./components/Footer"
 import UserProfile from "./components/UserProfile"
 import InFolderTasks from "./components/InFolderTasks"
@@ -64,19 +65,15 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        // Перевіряємо, чи є збережена тема в localStorage
         const savedTheme = localStorage.getItem('theme')
         if (savedTheme) {
-            // Якщо тема збережена, оновлюємо стан
             this.setState({ theme: savedTheme }, this.applyTheme)
         } else {
-            // Якщо немає збереженої теми, можна встановити тему за замовчуванням
             this.setState({ theme: "dark" }, this.applyTheme)
         }
     }
 
     componentDidUpdate(prevProps, prevState) {
-        // Застосовуємо тему після зміни стану
         if (prevState.theme !== this.state.theme) {
             this.applyTheme()
             localStorage.setItem('theme', this.state.theme)
@@ -86,12 +83,10 @@ class App extends React.Component {
     applyTheme() {
         const wrapper = document.getElementById("wrapper")
 
-        // Якщо тема світла, додаємо клас 'light' і прибираємо 'dark'
         if (this.state.theme === "light") {
             wrapper.classList.add("light")
             wrapper.classList.remove("dark")
         } else {
-            // Якщо тема темна, додаємо клас 'dark' і прибираємо 'light'
             wrapper.classList.add("dark")
             wrapper.classList.remove("light")
         }
@@ -326,24 +321,6 @@ class App extends React.Component {
         })
     }
 
-    // changeTheme(theme) {
-    //     this.setState({
-    //         theme: theme
-    //     })
-
-    //     localStorage.setItem('theme', theme)
-
-    //     const wrapper = document.getElementById("wrapper")
-
-    //     if (theme === "light") {
-    //         wrapper.classList.add("light")
-    //         wrapper.classList.remove("dark")
-    //     } else {
-    //         wrapper.classList.add("dark")
-    //         wrapper.classList.remove("light")
-    //     }
-    // }
-
     changeTheme(theme) {
         this.setState({
             theme: theme
@@ -383,20 +360,26 @@ class App extends React.Component {
 
         if (page === "folders") {
             return (
-                <aside>
+                <aside className="folders-sidebar">
+                    <OpenButton />
+
                     <AddFolderForm userId={loggedInUser.user_id} onFolderAdd={this.addFolder} />
                 </aside>
             )
         } else if (page === "tasks") {
             return (
-                <aside>
+                <aside className="tasks-sidebar">
+                    <OpenButton />
+
                     <DeleteTaskForm deleteTasks={this.deleteTasks} />
                 </aside>
             )
 
         } else if (page === "inFolder") {
             return (
-                <aside>
+                <aside className="in-folder-sidebar">
+                    <OpenButton />
+
                     <AddTaskForm userId={loggedInUser.user_id} folderId={this.state.folder_id} onTaskAdd={this.addTask} />
 
                     <DeleteTaskForm deleteTasks={this.deleteTasks} />

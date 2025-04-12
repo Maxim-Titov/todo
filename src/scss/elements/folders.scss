@@ -3,10 +3,12 @@
 .folders {
     display: grid;
     grid-gap: $gutter;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    width: fit-content;
+    margin: 0 auto;
 
     .folder {
-        width: 150px;
+        width: 80px;
         padding: $gutterS;
         cursor: pointer;
         border-radius: 8px;
@@ -46,12 +48,30 @@
             color: black;
 
             img {
-                width: 150px;
+                width: 80px;
             }
 
             p {
+                width: 80px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
                 font-size: 16px;
                 text-align: center;
+            }
+
+            form {
+                text-align: center;
+
+                input {
+                    width: 75px;
+                    text-align: center;
+                    margin-bottom: 5px;
+                }
+
+                button {
+                    width: 80px;
+                }
             }
         }
 
@@ -72,7 +92,7 @@
         grid-template-columns: repeat(3, 1fr);
 
         .folder {
-            width: 100px;
+            width: 80px;
 
             .options {
                 opacity: 100;
@@ -84,7 +104,7 @@
                 color: black;
 
                 img {
-                    width: 100px;
+                    width: 80px;
                 }
 
                 p {

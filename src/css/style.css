@@ -10,6 +10,18 @@ body {
   background-color: #3c3c3c;
   color: #fff;
 }
+#wrapper.dark .bm-burger-bars {
+  background: #fff;
+}
+#wrapper.dark .bm-menu {
+  background-color: #2b2b2b;
+}
+#wrapper.dark .bm-item-list {
+  color: #b8b7ad;
+}
+#wrapper.dark .bm-item-list .menu {
+  border-bottom: 1px solid darkgray;
+}
 #wrapper.dark header,
 #wrapper.dark footer {
   background-color: #2b2b2b;
@@ -95,16 +107,11 @@ h5 {
   margin: 0;
 }
 
-@media (max-width: 1220px) {
-  .container {
-    width: 100%;
-  }
-}
 header {
   border-bottom: 1px solid black;
 }
 header .container {
-  padding: 30px 0;
+  padding: 20px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -114,10 +121,10 @@ header .container .site-branding {
   align-items: center;
 }
 header .container .site-branding img {
-  width: 100px;
+  width: 60px;
 }
 header .container .site-branding h1 {
-  font-size: 50px;
+  font-size: 30px;
 }
 header .container .user {
   display: flex;
@@ -125,7 +132,7 @@ header .container .user {
   cursor: pointer;
 }
 header .container .user img {
-  width: 100px;
+  width: 60px;
   border-radius: 50%;
 }
 header .container div:last-child {
@@ -177,7 +184,7 @@ header .container div:last-child {
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #fff;
+  background: black;
 }
 
 /* Color/shape of burger icon bars on hover*/
@@ -207,7 +214,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
+  background: white;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -219,14 +226,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: #b8b7ad;
+  color: black;
   padding: 0.8em;
 }
 .bm-item-list:first-child {
   margin-top: 30px;
 }
 .bm-item-list .menu {
-  border-bottom: 1px solid darkgray;
+  border-bottom: 1px solid black;
   margin-bottom: 20px;
 }
 .bm-item-list .menu nav ul {
@@ -269,9 +276,34 @@ Note: Beware of modifying this element as it can break the animations - you shou
   position: relative;
 }
 .main-wrapper aside {
+  position: relative;
   width: 25%;
   border-left: 1px solid black;
   padding: 30px 30px;
+  transition: transform 0.3s;
+}
+.main-wrapper aside .open-btn {
+  position: absolute;
+  top: 15px;
+  left: 50px;
+  scale: 2;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.main-wrapper aside.folders-sidebar {
+  transform: translateY(calc(100% - 50px));
+}
+.main-wrapper aside.in-folder-sidebar {
+  transform: translateY(calc(100% - 50px));
+}
+.main-wrapper aside.tasks-sidebar {
+  transform: translateY(calc(100% - 50px));
+}
+.main-wrapper aside.open {
+  transform: translateY(0);
+}
+.main-wrapper aside.open .open-btn {
+  transform: rotate(180deg);
 }
 
 /*------------------------------------------------------------------*/
@@ -286,7 +318,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     width: 95%;
     border-left: none;
     border-top: 1px solid black;
-    padding: 20px 10px;
+    padding: 50px 10px 0 10px;
   }
 }
 .user-profile .user {
@@ -296,8 +328,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
   margin-bottom: 50px;
 }
 .user-profile .user img {
-  width: 100px;
+  width: 80px;
   border-radius: 50%;
+}
+.user-profile .user .user-name {
+  font-size: 30px;
 }
 .user-profile .about-and-settings {
   display: flex;
@@ -351,10 +386,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .folders {
   display: grid;
   grid-gap: 30px;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  width: fit-content;
+  margin: 0 auto;
 }
 .folders .folder {
-  width: 150px;
+  width: 80px;
   padding: 10px;
   cursor: pointer;
   border-radius: 8px;
@@ -390,11 +427,26 @@ Note: Beware of modifying this element as it can break the animations - you shou
   color: black;
 }
 .folders .folder div img {
-  width: 150px;
+  width: 80px;
 }
 .folders .folder div p {
+  width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 16px;
   text-align: center;
+}
+.folders .folder div form {
+  text-align: center;
+}
+.folders .folder div form input {
+  width: 75px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.folders .folder div form button {
+  width: 80px;
 }
 .folders .folder:hover {
   background-color: #f0f0f0;
@@ -409,7 +461,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     grid-template-columns: repeat(3, 1fr);
   }
   .folders .folder {
-    width: 100px;
+    width: 80px;
   }
   .folders .folder .options {
     opacity: 100;
@@ -420,7 +472,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     color: black;
   }
   .folders .folder div img {
-    width: 100px;
+    width: 80px;
   }
   .folders .folder div p {
     font-size: 16px;
@@ -432,6 +484,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 .in-folder-tasks {
   position: relative;
+  padding: 0 10px;
 }
 .in-folder-tasks .back-btn {
   position: absolute;
@@ -447,6 +500,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .in-folder-tasks .folder-title {
   text-align: center;
   margin-bottom: 50px;
+}
+
+.tasks {
+  padding: 0 10px;
 }
 
 .task {
@@ -505,6 +562,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
   transform: translateX(-50%);
 }
 
+.no-tasks-label {
+  text-align: center;
+}
+
 form * {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
@@ -558,6 +619,9 @@ form * {
   cursor: pointer;
 }
 
+.delete-tasks-form {
+  margin-bottom: 30px;
+}
 .delete-tasks-form button {
   width: 100%;
   height: 50px;
@@ -701,8 +765,9 @@ form * {
 
 footer {
   border-top: 1px solid black;
+  z-index: 1;
 }
 footer .container {
-  padding: 50px 0;
+  padding: 40px 0;
   text-align: center;
 }

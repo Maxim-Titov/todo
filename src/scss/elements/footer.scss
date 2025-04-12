@@ -1,8 +1,11 @@
+@import "../global/variables";
+
 footer {
     border-top: 1px solid black;
+    z-index: 1;
 
     .container {
-        padding: 50px 0;
+        padding: 40px 0;
         text-align: center;
     }
 }

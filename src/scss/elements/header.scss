@@ -4,7 +4,7 @@ header {
     border-bottom: 1px solid black;
 
     .container {
-        padding: $gutter 0;
+        padding: $gutterM $gutterS;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -14,11 +14,11 @@ header {
             align-items: center;
 
             img {
-                width: 100px;
+                width: 60px;
             }
 
             h1 {
-                font-size: 50px;
+                font-size: 30px;
             }
         }
 
@@ -28,7 +28,7 @@ header {
             cursor: pointer;
 
             img {
-                width: 100px;
+                width: 60px;
                 border-radius: 50%;
             }
         }
