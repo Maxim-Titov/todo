@@ -108,10 +108,15 @@ class App extends React.Component {
     }
 
     logout() {
+        const savedTheme = localStorage.getItem('theme')
+        if (savedTheme) {
+            this.setState({ theme: savedTheme }, this.applyTheme)
+        } else {
+            this.setState({ theme: "dark" }, this.applyTheme)
+        }
+
         this.setState({
             page: "folders",
-
-            theme: "dark",
 
             user: [],
 
